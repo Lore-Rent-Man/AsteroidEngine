@@ -58,6 +58,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>AS_PLATFORM_WINDOWS;AS_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Asteroid\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -72,6 +73,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>AS_PLATFORM_WINDOWS;AS_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Asteroid\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -81,12 +83,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Asteroid\Log.h" />
     <ClInclude Include="src\Asteroid\Application.h" />
     <ClInclude Include="src\Asteroid\Core.h" />
     <ClInclude Include="src\Asteroid.h" />
     <ClInclude Include="src\Asteroid\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Asteroid\Log.cpp" />
     <ClCompile Include="src\Asteroid\Application.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

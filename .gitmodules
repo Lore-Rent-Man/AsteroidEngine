@@ -1,0 +1,3 @@
+[submodule "Asteroid/vendor/spdlog"]
+	path = Asteroid/vendor/spdlog
+	url = https://github.com/gabime/spdlog

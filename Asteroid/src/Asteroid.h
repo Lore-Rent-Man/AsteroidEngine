@@ -4,5 +4,8 @@
 
 #include "Asteroid/Application.h"
 
+//Logger
+#include "Asteroid/Log.h"
+
 //Entry Point
 #include "Asteroid/EntryPoint.h"
