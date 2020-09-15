@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Asteroid"
   ],
+  "SelectedNode": "\\Asteroid\\Asteroid.vcxproj",
   "PreviewInSolutionExplorer": false
 }
