@@ -11,7 +11,6 @@ namespace Asteroid {
 	{
 	public:
 		static void Init();
-
 		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger();
 		inline static std::shared_ptr<spdlog::logger>& GetClientLogger();
 	private:
