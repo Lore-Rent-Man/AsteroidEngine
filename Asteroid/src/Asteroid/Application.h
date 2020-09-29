@@ -2,6 +2,8 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "glad/glad.h"
+#include "glfw/glfw3.h"
 
 namespace Asteroid {
 

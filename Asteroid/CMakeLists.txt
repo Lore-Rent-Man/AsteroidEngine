@@ -14,7 +14,7 @@ add_library(
 )
 
 target_include_directories(Asteroid PUBLIC 
-	${ASTEROID_APP_ROOT}/Asteroid/vendor/spdlog/include
+	${ASTEROID_APP_ROOT}/Asteroid/vendor/include
 	${ASTEROID_APP_ROOT}/Asteroid/src
 )
 
@@ -32,5 +32,9 @@ set_target_properties(Asteroid
 
 target_precompile_headers(Asteroid PUBLIC
 	src/aspch.h
+)
+
+target_link_libraries(Asteroid PUBLIC
+	${ASTEROID_APP_ROOT}/Asteroid/vendor/lib/glfw3.lib
 )
 	
