@@ -7,10 +7,13 @@ add_library(
 	src/Asteroid/EntryPoint.h
 	src/Asteroid/Log.cpp
 	src/Asteroid/Log.h
+	src/Asteroid/Window.h
 	src/Asteroid/Events/Event.h
 	src/Asteroid/Events/KeyEvent.h
 	src/Asteroid/Events/ApplicationEvent.h
 	src/Asteroid/Events/MouseEvent.h
+	src/Asteroid/Window/WindowsWindow.h
+	src/Asteroid/Window/WindowsWindow.cpp
 )
 
 target_include_directories(Asteroid PUBLIC 
@@ -18,7 +21,7 @@ target_include_directories(Asteroid PUBLIC
 	${ASTEROID_APP_ROOT}/Asteroid/src
 )
 
-target_compile_definitions(Asteroid PUBLIC AS_BUILD_DLL)
+target_compile_definitions(Asteroid PUBLIC AS_BUILD_DLL AS_ENABLE_ASSETS)
 if (WIN32)
 	target_compile_definitions(Asteroid PUBLIC AS_PLATFORM_WINDOWS)
 endif(WIN32)

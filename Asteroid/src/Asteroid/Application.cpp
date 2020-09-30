@@ -8,7 +8,7 @@ namespace Asteroid {
 	
 	Application::Application()
 	{
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -18,15 +18,9 @@ namespace Asteroid {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1200, 720);
-		if (e.IsInCategory(EventCategoryApplication))
+		while (m_Running)
 		{
-			AS_TRACE(e);
-		}
-		if (e.IsInCategory(EventCategoryInput))
-		{
-			AS_TRACE(e);
-		}
-		while (true);
+			m_Window->OnUpdate();
+		};
 	}
 }
