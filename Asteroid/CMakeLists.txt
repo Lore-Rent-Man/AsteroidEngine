@@ -37,7 +37,24 @@ target_precompile_headers(Asteroid PUBLIC
 	src/aspch.h
 )
 
+add_library(glad 
+	${ASTEROID_APP_ROOT}/Asteroid/vendor/include/glad/glad.h
+	${ASTEROID_APP_ROOT}/Asteroid/vendor/lib/glad.c
+)
+
+target_include_directories(glad PUBLIC 
+	${ASTEROID_APP_ROOT}/Asteroid/vendor/include
+)
+
+set_target_properties(glad
+	PROPERTIES
+	ARCHIVE_OUTPUT_DIRECTORY ${ASTEROID_APP_ROOT}/bin/Asteroid/${CMAKE_BUILD_TYPE}
+	LIBRARY_OUTPUT_DIRECTORY ${ASTEROID_APP_ROOT}/bin/Asteroid/${CMAKE_BUILD_TYPE}
+	RUNTIME_OUTPUT_DIRECTORY ${ASTEROID_APP_ROOT}/bin/Asteroid/${CMAKE_BUILD_TYPE}
+)
+
 target_link_libraries(Asteroid PUBLIC
 	${ASTEROID_APP_ROOT}/Asteroid/vendor/lib/glfw3.lib
+	glad
 )
 	
