@@ -2,20 +2,22 @@
 
 #include "Core.h"
 #include "Events/Event.h"
-#include "glad/glad.h"
-#include "glfw/glfw3.h"
+#include "Asteroid/Events/ApplicationEvent.h"
 #include "Window.h"
 
 namespace Asteroid {
 
-	class ASTEROID_API Application
+	class Application
 	{
 	public:
-		Application();
-		virtual ~Application();
+		ASTEROID_API Application();
+		ASTEROID_API virtual ~Application();
 
-		void Run();
+		ASTEROID_API void Run();
+
+		ASTEROID_API void OnEvent(Event& e);
 	private:
+		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 	};

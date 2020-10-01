@@ -21,7 +21,7 @@ target_include_directories(Asteroid PUBLIC
 	${ASTEROID_APP_ROOT}/Asteroid/src
 )
 
-target_compile_definitions(Asteroid PUBLIC AS_BUILD_DLL AS_ENABLE_ASSETS)
+target_compile_definitions(Asteroid PUBLIC AS_BUILD_DLL AS_ENABLE_ASSERTS)
 if (WIN32)
 	target_compile_definitions(Asteroid PUBLIC AS_PLATFORM_WINDOWS)
 endif(WIN32)
@@ -38,7 +38,6 @@ target_precompile_headers(Asteroid PUBLIC
 )
 
 add_library(glad 
-	${ASTEROID_APP_ROOT}/Asteroid/vendor/include/glad/glad.h
 	${ASTEROID_APP_ROOT}/Asteroid/vendor/lib/glad.c
 )
 
