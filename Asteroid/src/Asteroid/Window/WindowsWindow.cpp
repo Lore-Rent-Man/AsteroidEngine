@@ -55,7 +55,7 @@ namespace Asteroid {
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
-		//Set GLFW callbacks
+		//Set GLFW callbacks with lambda functions that call window's EventCallbackFn
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);

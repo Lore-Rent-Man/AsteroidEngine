@@ -7,6 +7,10 @@ add_library(
 	src/Asteroid/EntryPoint.h
 	src/Asteroid/Log.cpp
 	src/Asteroid/Log.h
+	src/Asteroid/Layer.h
+	src/Asteroid/Layer.cpp
+	src/Asteroid/LayerStack.h
+	src/Asteroid/LayerStack.cpp
 	src/Asteroid/Window.h
 	src/Asteroid/Events/Event.h
 	src/Asteroid/Events/KeyEvent.h

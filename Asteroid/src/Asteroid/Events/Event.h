@@ -2,9 +2,13 @@
 
 #include "Asteroid/Core.h"
 
+//Base event class that serves as interface for other events
+//Macros EVENT_CLASS_TYPE and EVENT_CLASS_CATEGORY defined to 
+//provide quick functions to categorize various events
+
 namespace Asteroid {
-	//Event blocking system, meaning that events are immediately dispatched
-	//and dealt with right away. Will swap to buffer events in an event bus.
+//Event blocking system, meaning that events are immediately dispatched
+//and dealt with right away. May swap to buffer events in an event bus
 
 	enum class EventType
 	{
@@ -25,18 +29,19 @@ namespace Asteroid {
 		EventCategoryMouseButton	= BIT(4)
 	};
 
-	//Need static type because at runtime, we need to check what each event type is.
-	//Static because event type is tied to class, not each instance of class.
+//Need static type because at runtime, we need to check what each event type is
+//Static because event type is tied to class, not each instance of class
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() {return EventType::##type;}\
 								virtual EventType GetEventType() const override {return GetStaticType();}\
 								virtual const char* GetName() const override {return #type;}
 
+//Macro that defines function to categorize event in corresponding EventCategory
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override {return category;}
 
 	class ASTEROID_API Event
 	{
-		friend class EventDispatcher;
 	public: 
+		bool Handled = false;
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -46,10 +51,12 @@ namespace Asteroid {
 		{
 			return GetCategoryFlags() & category;
 		}
-	protected: 
-		bool m_Handled = false;
 	};
 
+//EventDispatcher to dispatch/handle events 
+//If event type passed to EventDispatcher matches the type specified by template T
+//EventDispatcher casts m_Event to type T and executes the callback fn
+//passed to EventDispatcher's Dispatch method
 	class EventDispatcher
 	{
 		template<typename T> 
@@ -62,7 +69,7 @@ namespace Asteroid {
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(*(T*)&m_Event);
+				m_Event.Handled = func(*(T*)&m_Event);
 				return true;
 			}
 			return false;

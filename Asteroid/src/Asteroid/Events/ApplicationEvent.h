@@ -2,6 +2,10 @@
 
 #include "Event.h"
 
+/*Application event definitions: Window resize, window close, app tick, app update, app render
+Macros EVENT_CLASS_TYPE and EVENT_CLASS_CATEGORY defined in Event.h to provide functions
+that categorize various events*/ 
+
 namespace Asteroid {
 
 	class ASTEROID_API WindowResizeEvent : public Event

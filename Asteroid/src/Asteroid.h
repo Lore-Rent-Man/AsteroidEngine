@@ -4,6 +4,9 @@
 
 #include "Asteroid/Application.h"
 
+//Layers (rendering and event handling)
+#include "Asteroid/Layer.h"
+
 //Logger
 #include "Asteroid/Log.h"
 
