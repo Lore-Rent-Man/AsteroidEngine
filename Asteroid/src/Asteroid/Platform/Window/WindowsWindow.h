@@ -2,13 +2,7 @@
 
 #include "Asteroid/Window.h"
 
-#include "Asteroid/Events/Event.h"
-#include "Asteroid/Events/ApplicationEvent.h"
-#include "Asteroid/Events/KeyEvent.h"
-#include "Asteroid/Events/MouseEvent.h"
-
-#include "glad/glad.h"
-#include "glfw/glfw3.h"
+struct GLFWwindow;
 
 namespace Asteroid {
 

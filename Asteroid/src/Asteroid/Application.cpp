@@ -2,6 +2,7 @@
 #include "Application.h"
 
 #include "Asteroid/Log.h"
+
 #include "glad/glad.h"
 #include "glfw/glfw3.h"
 
@@ -9,8 +10,13 @@ namespace Asteroid {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 	
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		AS_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
+
 		//Initialization of Windows, GLFW, and GLAD
 		m_Window = std::unique_ptr<Window>(Window::Create());
 
@@ -26,11 +32,13 @@ namespace Asteroid {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
@@ -67,5 +75,15 @@ namespace Asteroid {
 	{
 		m_Running = false;
 		return true;
+	}
+
+	Application& Application::Get()
+	{
+		return *s_Instance; 
+	}
+
+	Window& Application::GetWindow()
+	{
+		return *m_Window; 
 	}
 } 

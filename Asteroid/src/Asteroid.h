@@ -10,5 +10,8 @@
 //Logger
 #include "Asteroid/Log.h"
 
+//ImGuiLayer
+#include "Asteroid/ImGui/ImGuiLayer.h"
+
 //Entry Point
 #include "Asteroid/EntryPoint.h"

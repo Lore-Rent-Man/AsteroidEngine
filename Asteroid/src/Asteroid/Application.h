@@ -12,23 +12,29 @@
 
 namespace Asteroid {
 
-	class Application
+	class ASTEROID_API Application
 	{
 	public:
-		ASTEROID_API Application();
-		ASTEROID_API virtual ~Application();
+		Application();
+		virtual ~Application();
 
-		ASTEROID_API void Run();
+		void Run();
 
-		ASTEROID_API void OnEvent(Event& e);
+		void OnEvent(Event& e);
 
-		ASTEROID_API void PushLayer(Layer* layer);
-		ASTEROID_API void PushOverlay(Layer* layer);
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
+		Window& GetWindow();
+
+		static Application& Get();
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+	private:
+		static Application* s_Instance;
 	};
 
 	//To be defined in client

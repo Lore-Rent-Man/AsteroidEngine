@@ -1,6 +1,14 @@
 #include "aspch.h"
 #include "WindowsWindow.h"
 
+#include "Asteroid/Events/Event.h"
+#include "Asteroid/Events/ApplicationEvent.h"
+#include "Asteroid/Events/KeyEvent.h"
+#include "Asteroid/Events/MouseEvent.h"
+
+#include "glad/glad.h"
+#include "glfw/glfw3.h"
+
 namespace Asteroid {
 
 	static bool s_GLFWInitialized = false;
@@ -47,10 +55,8 @@ namespace Asteroid {
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-		{
-			AS_CORE_ERROR("Failed to initialize GLAD");
-		}
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		AS_CORE_ASSERT(status, "Failed in initialize GLAD!");
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);

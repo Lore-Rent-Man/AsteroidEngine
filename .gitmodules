@@ -1,3 +1,6 @@
 [submodule "Asteroid/vendor/spdlog"]
 	path = Asteroid/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Asteroid/vendor/imgui"]
+	path = Asteroid/vendor/imgui
+	url = https://github.com/ocornut/imgui
