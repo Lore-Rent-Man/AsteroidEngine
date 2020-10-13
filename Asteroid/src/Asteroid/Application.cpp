@@ -6,6 +6,8 @@
 #include "glad/glad.h"
 #include "glfw/glfw3.h"
 
+#include "Input.h";
+
 namespace Asteroid {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -47,7 +49,7 @@ namespace Asteroid {
 		//Sets callback function for event dispatcher to handle specified events
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
-		AS_CORE_TRACE("{0}", e);
+		//AS_CORE_TRACE("{0}", e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
@@ -66,7 +68,8 @@ namespace Asteroid {
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
-
+			auto [x, y] = Input::GetMousePos();
+			AS_CORE_TRACE("{0}, {1}", x, y);
 			m_Window->OnUpdate();
 		};
 	}

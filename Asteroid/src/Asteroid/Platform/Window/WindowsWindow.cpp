@@ -80,6 +80,13 @@ namespace Asteroid {
 			data.EventCallback(event);
 		});
 
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent event(keycode);			
+			data.EventCallback(event);
+		});
+
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int modes) 
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -119,7 +126,7 @@ namespace Asteroid {
 				}
 				case GLFW_RELEASE:
 				{
-					MouseButtonPressedEvent event(button);
+					MouseButtonReleasedEvent event(button);
 					data.EventCallback(event);
 					break;
 				}
@@ -166,4 +173,9 @@ namespace Asteroid {
 	{
 		return m_Data.VSync;
 	}
+
+	//void* WindowsWindow::GetNativeWindow() const
+	//{
+	//	return m_Window;
+	//}
 }

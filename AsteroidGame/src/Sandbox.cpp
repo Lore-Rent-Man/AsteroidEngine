@@ -10,12 +10,10 @@ public:
 
 	void OnUpdate() override
 	{
-		AS_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Asteroid::Event& event) override
 	{
-		AS_TRACE("{0}", event);
 	}
 };
 

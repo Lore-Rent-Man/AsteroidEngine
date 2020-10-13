@@ -5,6 +5,7 @@ add_library(
 	src/Asteroid/Application.cpp
 	src/Asteroid/Core.h
 	src/Asteroid/EntryPoint.h
+	src/Asteroid/Input.h
 	src/Asteroid/Layer.h
 	src/Asteroid/Layer.cpp
 	src/Asteroid/LayerStack.h
@@ -22,6 +23,8 @@ add_library(
 	src/Asteroid/Platform/OpenGL/ImGuiOpenGLRenderer.cpp
 	src/Asteroid/Platform/Window/WindowsWindow.h
 	src/Asteroid/Platform/Window/WindowsWindow.cpp
+	src/Asteroid/Platform/Window/WindowsInput.h
+	src/Asteroid/Platform/Window/WindowsInput.cpp
 )
 
 target_include_directories(Asteroid PUBLIC 
@@ -29,7 +32,7 @@ target_include_directories(Asteroid PUBLIC
 	${ASTEROID_APP_ROOT}/Asteroid/src
 )
 
-target_compile_definitions(Asteroid PUBLIC AS_BUILD_DLL AS_ENABLE_ASSERTS)
+target_compile_definitions(Asteroid PUBLIC AS_BUILD_DLL)
 if (WIN32)
 	target_compile_definitions(Asteroid PUBLIC AS_PLATFORM_WINDOWS)
 endif(WIN32)
