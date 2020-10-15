@@ -7,7 +7,9 @@ target_include_directories(AsteroidGame PUBLIC ${ASTEROID_APP_ROOT}/Asteroid/src
 
 target_compile_definitions(AsteroidGame PUBLIC AS_PLATFORM_WINDOWS)
 
-target_link_libraries(AsteroidGame PRIVATE Asteroid)
+target_link_libraries(AsteroidGame PUBLIC 
+	Asteroid 
+)
 
 set_target_properties(AsteroidGame
 	PROPERTIES

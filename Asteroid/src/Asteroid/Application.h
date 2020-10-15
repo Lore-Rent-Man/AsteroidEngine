@@ -2,13 +2,14 @@
 
 #include "Core.h"
 
-#include "Events/Event.h"
+#include "Window.h"
+
+#include "Asteroid/LayerStack.h"
+#include "Asteroid/Events/Event.h"
 #include "Asteroid/Events/ApplicationEvent.h"
 
-#include "Asteroid/Layer.h"
-#include "Asteroid/LayerStack.h"
-
-#include "Window.h"
+#include "Asteroid/ImGui/ImGuiLayer.h"
+#include "imgui.h"
 
 namespace Asteroid {
 
@@ -31,6 +32,7 @@ namespace Asteroid {
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:

@@ -11,6 +11,11 @@ add_library(ImGui STATIC
 	imgui_demo.cpp
 )
 
+set(DLLEXPORT "__declspec(dllexport)")
+
+target_compile_definitions(ImGui PUBLIC IMGUI_API=${DLLEXPORT})
+
+
 target_include_directories(ImGui PUBLIC 
 	${ASTEROID_APP_ROOT}/Asteroid/vendor/imgui
 )

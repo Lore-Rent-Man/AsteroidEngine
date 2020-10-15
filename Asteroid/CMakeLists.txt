@@ -22,8 +22,7 @@ add_library(
 	src/Asteroid/Events/MouseEvent.h
 	src/Asteroid/ImGui/ImGuiLayer.h
 	src/Asteroid/ImGui/ImGuiLayer.cpp
-	src/Asteroid/Platform/OpenGL/ImGuiOpenGLRenderer.h
-	src/Asteroid/Platform/OpenGL/ImGuiOpenGLRenderer.cpp
+	src/Asteroid/ImGui/ImGuiBuild.cpp
 	src/Asteroid/Platform/Window/WindowsWindow.h
 	src/Asteroid/Platform/Window/WindowsWindow.cpp
 	src/Asteroid/Platform/Window/WindowsInput.h
