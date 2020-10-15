@@ -1,0 +1,6 @@
+[submodule "AsteroidEngine/Asteroid/vendor/imgui"]
+	path = AsteroidEngine/Asteroid/vendor/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "Asteroid/vendor/imgui"]
+	path = Asteroid/vendor/imgui
+	url = https://github.com/ocornut/imgui
