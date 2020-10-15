@@ -10,16 +10,17 @@ public:
 
 	void OnUpdate() override
 	{
-		AS_INFO("ExampleLayer::Update");
-
-		if (Asteroid::Input::IsKeyPressed(AS_KEY_TAB))
-		{
-			AS_INFO("Tab key is pressed!");
-		}
 	}
 
 	void OnEvent(Asteroid::Event& event) override
 	{
+		if (event.GetEventType() == Asteroid::EventType::KeyPressed)
+		{
+			Asteroid::KeyPressedEvent& e = (Asteroid::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == AS_KEY_TAB)
+				AS_TRACE("Tab key is pressed (event)!");
+			AS_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 

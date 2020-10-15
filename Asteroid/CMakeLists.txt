@@ -31,7 +31,7 @@ add_library(
 )
 
 target_include_directories(Asteroid PUBLIC 
-	${ASTEROID_APP_ROOT}/Asteroid/vendor/include/
+	${ASTEROID_APP_ROOT}/Asteroid/vendor
 	${ASTEROID_APP_ROOT}/Asteroid/src
 )
 
@@ -54,7 +54,7 @@ target_precompile_headers(Asteroid PUBLIC
 add_subdirectory(vendor)
 
 target_link_libraries(Asteroid PUBLIC
-	${ASTEROID_APP_ROOT}/Asteroid/vendor/lib/glfw3.lib
+	${ASTEROID_APP_ROOT}/Asteroid/vendor/glfw/glfw3.lib
 	glad
 	ImGui
 )
